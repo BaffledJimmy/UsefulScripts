@@ -9,7 +9,7 @@ mkdir /var/www/
 apt-get install python-setuptools
 easy_install pip
 pip install selenium
-apt-get install unrar unace rar unrar p7zip zip unzip p7zip-full p7zip-rar alacarte file-roller -y
+apt-get install unrar unace rar unrar p7zip zip unzip p7zip-full p7zip-rar alacarte oxygen-icon-theme oxygencursors file-roller -y
 
 #msfconsole.rc
 #
