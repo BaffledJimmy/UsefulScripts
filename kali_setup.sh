@@ -142,4 +142,4 @@ updatedb
 apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
 echo
-echo "[!] You must run the setup on Empire manually at /opt/Empire and Veil-Evasion at /opt"
+echo "[!] Don't forget to run the setup on Empire manually at /opt/Empire and Veil-Evasion at /opt"
