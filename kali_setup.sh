@@ -234,6 +234,7 @@ updatedb
 apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
 echo
-echo "[!] You also need to install Go from https://golang.org/dl/ and then run 'https://golang.org/dl/'" 
+echo "[!] You also need to install Go from https://golang.org/dl/ and then run 'go get github.com/bettercap/bettercap'" 
 echo "[!] You must run the setup on Empire manually at /opt/Empire and Veil at /opt/Veil"
 echo "[!] Grab latest Mimikatz: https://github.com/gentilkiwi/mimikatz/releases " 
+echo "[!] Grab latest Nessus Pro and BurpSuitePro too. " 
