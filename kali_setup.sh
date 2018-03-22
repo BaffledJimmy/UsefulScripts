@@ -2,17 +2,17 @@
 ##!/bin/bash
 Kali Initial Build Script
 
+wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
+apt install ./kali-archive-keyring_2018.1_all.deb
+
 #initial commands
 apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
-
 
 #basic installs
 apt-get install python-setuptools
 easy_install pip
 pip install selenium
 apt-get install unrar jxplorer unace rdate krb5-user rar libssl1.0-dev libxml2-dev zlib1g-dev unrar p7zip zip unzip p7zip-full p7zip-rar file-roller nfs-acl-tools freetds-dev bloodhound cadaver csvtool bkhive bettercap creddump creddump7 exiftool fierce htop gobuster html2text ipcalc masscan mimikatz mingw-w64 ldap-utils rsh-client finger linux-exploit-suggester neo4j nishang nfs-common recon-ng rinetd samdum2 seclists smbclient sshuttle sshpass tree wce websploit unicorn-magic -y
-
-
 
 #msfconsole.rc
 #
