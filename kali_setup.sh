@@ -34,6 +34,44 @@ cd /opt
 git clone https://github.com/PowerShellEmpire/Empire.git
 #run setup manually.
 
+#LinkedInt
+cd /opt
+git clone https://github.com/mdsecactivebreach/LinkedInt.git
+
+#AWS Buckets
+cd /opt
+git clone https://github.com/W00t3k/inSp3ctor.git
+
+#Chameleon - Avoid Proxy Filter
+cd /opt
+git clone https://github.com/mdsecactivebreach/Chameleon.git
+
+#HTA
+cd /opt
+git clone https://github.com/nccgroup/demiguise.git
+
+#Quick HTTP Wins
+cd /opt
+git clone https://github.com/ConsciousHacker/EyeWitness.git
+
+#Sharepoint Enumeration
+cd /opt
+git clone https://github.com/sensepost/SPartan.git
+
+#LyncSmash
+cd /opt
+git clone https://github.com/nyxgeek/lyncsmash.git
+
+#SubDomain Enumeration
+cd /opt
+git clone https://github.com/aboul3la/Sublist3r.git
+
+#SpiderFoot
+cd /opt
+git clone https://github.com/smicallef/spiderfoot.git
+
+
+
 #SOAP-UI
 cd /opt
 wget -q https://s3.amazonaws.com/downloads.eviware/soapuios/5.4.0/SoapUI-x64-5.4.0.sh -o /tmp/soapui-x64-5.4.0.sh && \
