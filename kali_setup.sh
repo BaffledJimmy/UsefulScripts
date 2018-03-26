@@ -45,6 +45,10 @@ apt-get install nodejs
 cd /opt
 git clone https://github.com/purpleteam/snarf.git
 
+#Unicorn
+cd /opt
+git clone https://github.com/trustedsec/unicorn.git
+
 #Veil-Evasion setup
 #
 cd /opt
