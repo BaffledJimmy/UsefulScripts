@@ -23,6 +23,30 @@ echo "set sessionlogging true" >> /msfconsole.rc
 echo "set timestampoutput true" >> /msfconsole.rc
 echo 'setg prompt "%cya%T%grn S:%S%blu J:%J "' >> /msfconsole.rc
 
+
+#Install Oracle for Cobalt Strike
+#Credit for this section of bash script goes to @_RastaMouse
+mkdir /usr/local/java
+curl -s -j -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz -o /usr/local/java/jdk-8u144-linux-x64.tar.gz
+cd /usr/local/java
+tar zxf jdk-8u144-linux-x64.tar.gz
+echo "JAVA_HOME=/usr/local/java/jdk1.8.0_144" >> /etc/profile
+echo "JRE_HOME=/usr/local/java/jdk1.8.0_144/jre" >> /etc/profile
+echo "PATH=$PATH:/usr/local/java/jdk1.8.0_144/bin:/usr/local/java/jdk1.8.0_144/jre/bin" >> /etc/profile
+echo "export JAVA_HOME" >> /etc/profile
+echo "export JRE_HOME" >> /etc/profile
+echo "export PATH" >> /etc/profile
+update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jdk1.8.0_144/bin/java" 1
+update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/jdk1.8.0_144/bin/javaws" 1
+update-alternatives --set java /usr/local/java/jdk1.8.0_144/bin/java
+update-alternatives --set javaws /usr/local/java/jdk1.8.0_144/bin/javaws
+rm /usr/local/java/jdk-8u144-linux-x64.tar.gz
+
+git clone https://github.com/rsmudge/Malleable-C2-Profiles.git /opt/cobaltstrike/MalleableC2
+
+##Manually grab latest CS and update - no CS licence key here ^_^
+
+
 #sipvicious
 
 cd /opt
