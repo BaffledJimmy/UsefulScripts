@@ -296,8 +296,7 @@ git clone https://github.com/quentinhardy/msdat.git
 
 #MDSEC SharpShooter - Payload Generation
 cd /opt
-git clone
-https://github.com/mdsecactivebreach/SharpShooter.git
+git clone https://github.com/mdsecactivebreach/SharpShooter.git
 
 #Splunk Malicious Pentest App
 cd /opt
