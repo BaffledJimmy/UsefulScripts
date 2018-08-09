@@ -46,6 +46,9 @@ git clone https://github.com/rsmudge/Malleable-C2-Profiles.git /opt/cobaltstrike
 
 ##Manually grab latest CS and update - no CS licence key here ^_^
 
+#CredChecker
+cd /opt 
+git clone https://github.com/Raikia/CredNinja.git
 
 #sipvicious
 
