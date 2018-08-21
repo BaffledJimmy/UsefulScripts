@@ -1,5 +1,5 @@
 
-##!/bin/bash
+#!/bin/bash
 Kali Initial Build Script
 
 wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
@@ -23,7 +23,7 @@ echo "set sessionlogging true" >> /msfconsole.rc
 echo "set timestampoutput true" >> /msfconsole.rc
 echo 'setg prompt "%cya%T%grn S:%S%blu J:%J "' >> /msfconsole.rc
 
-
+# TO DO - this bit needs tweaking for latest java stuff
 #Install Oracle for Cobalt Strike
 #Credit for this section of bash script goes to @_RastaMouse
 mkdir /usr/local/java
@@ -249,6 +249,10 @@ chmod +x frogger
 cd /opt
 git clone https://github.com/OffensivePython/HeartLeak.git
 
+#PowerSCCM
+cd /opt 
+https://github.com/PowerShellMafia/PowerSCCM.git
+
 #impacket (always fun!)
 cd /opt
 git clone https://github.com/CoreSecurity/impacket.git
@@ -260,7 +264,7 @@ python setup.py
 
 #SprayWMI
 cd /opt
-git clone git clone https://github.com/trustedsec/spraywmi.git
+git clone https://github.com/trustedsec/spraywmi.git
 mv /opt/spraywmi/wmis /opt/spraywmi/wmis.old
 cp /usr/bin/pth-wmis /opt/spraywmi/wmis
 
