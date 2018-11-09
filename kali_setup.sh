@@ -73,6 +73,10 @@ git clone https://github.com/W00t3k/inSp3ctor.git
 cd /opt
 git clone https://github.com/mdsecactivebreach/Chameleon.git
 
+#ICMP Tunnels
+cd /opt
+https://github.com/inquisb/icmpsh.git
+
 #HTA
 cd /opt
 git clone https://github.com/nccgroup/demiguise.git
@@ -121,6 +125,10 @@ git clone https://github.com/Veil-Framework/Veil.git
 git clone https://github.com/Veil-Framework/PowerTools.git
 echo "[!] Don't forget at the end to run the installer manually!"
 
+# PoshC2
+cd /opt
+git clone https://github.com/nettitude/PoshC2_Python.git
+
 #Responder Setup
 rm -r /usr/share/responder
 rm /usr/bin/responder
@@ -131,9 +139,9 @@ cp -r * /usr/bin
 
 #Impacket Setup
 cd /opt
-git clone https://github.com/CoreSecurity/impacket.git
+https://github.com/SecureAuthCorp/impacket.git
 cd impacket
-python setup.py install
+pip install .
 cp /opt/impacket/examples/smbrelayx.py /usr/bin
 chmod 755 /usr/bin/smbrelayx.py
 cp /opt/impacket/examples/goldenPac.py /usr/bin
