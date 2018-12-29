@@ -75,7 +75,7 @@ git clone https://github.com/mdsecactivebreach/Chameleon.git
 
 #ICMP Tunnels
 cd /opt
-https://github.com/inquisb/icmpsh.git
+git clone https://github.com/inquisb/icmpsh.git
 
 #HTA
 cd /opt
