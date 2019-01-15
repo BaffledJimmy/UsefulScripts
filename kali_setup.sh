@@ -116,6 +116,10 @@ cd /opt
 wget -q https://s3.amazonaws.com/downloads.eviware/soapuios/5.4.0/SoapUI-x64-5.4.0.sh -o /tmp/soapui-x64-5.4.0.sh && \
 /tmp/soapui-x64-5.4.0.sh
 
+# Pret
+cd /opt
+git clone https://github.com/RUB-NDS/PRET.git
+
 #Snarf
 #
 apt-get install nodejs
