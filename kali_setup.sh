@@ -12,7 +12,7 @@ apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 apt-get install python-setuptools
 easy_install pip
 pip install selenium
-apt-get install unrar jxplorer unace rdate krb5-user rar libssl1.0-dev libxml2-dev zlib1g-dev unrar p7zip zip unzip p7zip-full p7zip-rar file-roller nfs-acl-tools freetds-dev bloodhound cadaver csvtool bkhive bettercap creddump creddump7 exiftool fierce htop gobuster html2text ipcalc masscan mimikatz mingw-w64 ldap-utils rsh-client finger linux-exploit-suggester neo4j nishang nfs-common recon-ng rinetd samdum2 seclists smbclient sshuttle sshpass tree wce websploit unicorn-magic -y
+apt-get install unrar jxplorer unace rdate krb5-user rar libssl1.0-dev libxml2-dev zlib1g-dev unrar p7zip zip unzip p7zip-full p7zip-rar file-roller nfs-acl-tools freetds-dev bloodhound cadaver csvtool bkhive bettercap creddump creddump7 exiftool fierce htop gobuster html2text ipcalc masscan mimikatz mingw-w64 ldap-utils rsh-client finger linux-exploit-suggester neo4j nishang nfs-common recon-ng rinetd samdum2 seclists smbclient sshuttle sshpass tree wce websploit unicorn-magic xdmcp xwd remmina remmina-plugin-xdmcp -y
 
 # Posh C2 & Supporting Modules
 cd /opt
